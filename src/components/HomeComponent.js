@@ -5,29 +5,25 @@ import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
 
-function RenderCard({item, isLoading, errMess}) {
-    
+function RenderCard({ item, isLoading, errMess }) {
     if (isLoading) {
-        return(
-            <Loading />
-        );
-    }
-    else if (errMess) {
-        return(
-            <h4>{errMess}</h4>
-        );
-    }
-    else 
-        return(
+        return <Loading />;
+    } else if (errMess) {
+        return <h4>{errMess}</h4>;
+    } else if (item) {
+        return (
             <Card>
                 <CardImg src={baseUrl + item.image} alt={item.name} />
                 <CardBody>
-                <CardTitle>{item.name}</CardTitle>
-                {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle> : null }
-                <CardText>{item.description}</CardText>
+                    <CardTitle>{item.name}</CardTitle>
+                    {item.designation ? (
+                        <CardSubtitle>{item.designation}</CardSubtitle>
+                    ) : null}
+                    <CardText>{item.description}</CardText>
                 </CardBody>
             </Card>
         );
+    } else return <div></div>;
 }
 
 function Home(props) {
