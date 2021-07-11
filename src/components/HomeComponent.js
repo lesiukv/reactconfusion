@@ -6,12 +6,14 @@ import { baseUrl } from '../shared/baseUrl';
 import { FadeTransform } from 'react-animation-components';
 
 
-function RenderCard({ item, isLoading, errMess }) {
+function RenderCard({item, isLoading, errMess}) {
     if (isLoading) {
         return <Loading />;
-    } else if (errMess) {
+    } 
+    else if (errMess) {
         return <h4>{errMess}</h4>;
-    } else if (item) {
+    } 
+    else if (item) {
         return (
             <FadeTransform in transformProps={{
                 exitTransfrom: 'scale(0.5) translateY(-50%)'
@@ -28,7 +30,8 @@ function RenderCard({ item, isLoading, errMess }) {
                 </Card>
             </FadeTransform>
         );
-    } else return <div></div>;
+    } 
+    else return <div></div>;
 }
 
 function Home(props) {
