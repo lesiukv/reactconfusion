@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
-
 function RenderLeader({leader}) {
     return (
         <div className="media">
@@ -20,10 +19,11 @@ function RenderLeader({leader}) {
 
 const About = (props) => {
 
+    
     const about = props.leaders.leaders.map((leader) => {
         return (
             <div className="col-12"  key={leader.id}>
-                    <RenderLeader leader={leader} />
+                <RenderLeader leader={leader} />
             </div>
         );
     });
@@ -31,10 +31,10 @@ const About = (props) => {
     if (props.leaders.isLoading) {
         return(
             <div className="container">
-                    <div className="row">            
-                        <Loading />
-                    </div>
+                <div className="row">            
+                    <Loading />
                 </div>
+            </div>
         );
     }
 

@@ -20,11 +20,12 @@ class Contact extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    
     handleSubmit(values) {
         console.log('Current State is: ' + JSON.stringify(values));
         alert('Current State is: ' + JSON.stringify(values));
+        this.props.postFeedback(this.props.firstname, values.lastname, values.telnum, values.email, values.agree, values.contacttype, values.message);
         this.props.resetFeedbackForm();
-        // event.preventDefault();
     }
 
     render () {
@@ -167,15 +168,14 @@ class Contact extends Component {
                                     <div className="form-check">
                                         <Label check>
                                             <Control.checkbox model=".agree" name="agree"
-                                                className="form-check-input"
-                                                 /> {' '}
+                                                className="form-check-input" id="agree" /> {' '}
                                                 <strong>May we contact you?</strong>
                                         </Label>
                                     </div>
                                 </Col>
                                 <Col md={{size: 3, offset: 1}}>
                                     <Control.select model=".contactType" name="contactType"
-                                        className="form-control">
+                                        className="form-control" id="contactType">
                                         <option>Tel.</option>
                                         <option>Email</option>
                                     </Control.select>
